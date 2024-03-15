@@ -1,0 +1,39 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+.listPokes{
+    background-color: #1c1c1c;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+
+.list{
+    color: beige;
+    font-size: larger;
+    padding: 8px;
+    font-family: "Roboto Mono", monospace;
+    
+}
+
+.listName{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 6px;
+    &:hover{
+        opacity: 0.6;
+        background-color: #332828;
+    }
+}
+
+.pokeballList{
+
+    width: 50px;
+}
