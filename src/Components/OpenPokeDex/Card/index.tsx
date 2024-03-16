@@ -40,7 +40,11 @@ const PokemonTypes: any = {
   fairy,
 };
 
-export const Card: React.FC = ({}) => {
+interface CardProps {
+  selectedPokemon: string;
+}
+
+export const Card: React.FC<CardProps> = ({selectedPokemon }) => {
   const [pokemonList, setPOkemonList] = useState<any[]>([])
   const [pokemon, setPokemon] = useState<any>([]);
   const [dataOn, setDataOn] = useState<boolean>(false);
@@ -54,16 +58,18 @@ export const Card: React.FC = ({}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data }:PokeData = await API.get("/butterfree");
+        const { data }:PokeData = await API.get(`/${selectedPokemon}`);
         setPokemon(data);
         setDataOn(true);
       } catch (error) {
         console.error(error);
       }
     };
-  
-    fetchData();
-  }, []);
+
+    if (selectedPokemon) {
+      fetchData();
+  }
+  }, [selectedPokemon]);
   
   const transformPoke = () => {
     transform === "default" ? setTransform("shiny") : setTransform("default");

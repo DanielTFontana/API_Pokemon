@@ -4,11 +4,16 @@ import "./styles.css";
 import closedPokeball from "../../../assets/pokeball-no-bg.png";
 import openPokeball from "../../../assets/open-pokeball.png";
 
-export const ListPoke: React.FC = ({}) => {
+interface ListPokeProps {
+  onPokemonSelect: (pokemonName: string) => void;
+}
+
+export const ListPoke: React.FC<ListPokeProps> = ({onPokemonSelect }) => {
   const [pokemonList, setPokemonList] = useState<any[]>([]);
+
   const getPokeList = async () => {
     try {
-      const { data }: any = await API.get("?limit=150");
+      const { data }: any = await API.get("?limit=151");
       setPokemonList(data.results);
     } catch (error) {
       console.log(error);
@@ -25,10 +30,14 @@ export const ListPoke: React.FC = ({}) => {
 
   console.log(pokemonList);
 
+  const IChooseYou = (pokeName:string) => {
+    onPokemonSelect(pokeName)
+  }
+
   return (
     <div className="listPokes">
       {pokemonList.map((pokemon: any) => (
-        <div className="listName" key={pokemon.name}>
+        <div className="listName" key={pokemon.name} onClick={ () => IChooseYou(pokemon.name)}>
           <p className="list">
             {FirstLatterUpper(pokemon.name)}
           </p>

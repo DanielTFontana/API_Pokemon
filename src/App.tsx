@@ -6,11 +6,10 @@ import { Card } from './Components/OpenPokeDex/Card'
 import { ListPoke } from './Components/OpenPokeDex/List'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div >
-    <OpenDex card={<Card/>} list={<ListPoke/>}></OpenDex>
+   <OpenDex/>
     </div>
   )
 }
