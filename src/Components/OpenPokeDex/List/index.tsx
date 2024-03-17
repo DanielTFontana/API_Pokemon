@@ -10,6 +10,7 @@ interface ListPokeProps {
 
 export const ListPoke: React.FC<ListPokeProps> = ({onPokemonSelect }) => {
   const [pokemonList, setPokemonList] = useState<any[]>([]);
+  const [selectedPokemon, setSelectedPokemon] = useState<string>('')
 
   const getPokeList = async () => {
     try {
@@ -32,7 +33,9 @@ export const ListPoke: React.FC<ListPokeProps> = ({onPokemonSelect }) => {
 
   const IChooseYou = (pokeName:string) => {
     onPokemonSelect(pokeName)
+    setSelectedPokemon(pokeName)
   }
+
 
   return (
     <div className="listPokes">
@@ -41,7 +44,7 @@ export const ListPoke: React.FC<ListPokeProps> = ({onPokemonSelect }) => {
           <p className="list">
             {FirstLatterUpper(pokemon.name)}
           </p>
-          <img className="pokeballList" src={closedPokeball} alt="" />
+          <img className="pokeballList" src={selectedPokemon === pokemon.name? openPokeball : closedPokeball} alt="" />
         </div>
       ))}
     </div>

@@ -45,7 +45,6 @@ interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({selectedPokemon }) => {
-  const [pokemonList, setPOkemonList] = useState<any[]>([])
   const [pokemon, setPokemon] = useState<any>([]);
   const [dataOn, setDataOn] = useState<boolean>(false);
   const [transform, setTransform] = useState("default");
@@ -102,9 +101,7 @@ export const Card: React.FC<CardProps> = ({selectedPokemon }) => {
     }
   }, [pokemon]);
 
-  const FirstLatterUpper = (str:string) =>{
-    return str.charAt(0).toUpperCase() + str.slice(1)
-}
+
 
   return (
  
