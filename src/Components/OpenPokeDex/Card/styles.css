@@ -70,3 +70,11 @@
     width: 60px;
     padding: 5px;
 }
+
+.cardStats{
+    width: 90%;
+    background-color: #f4f4f4;
+    padding: 8px;
+    border-radius: 2%;
+    height: 80%;
+}
