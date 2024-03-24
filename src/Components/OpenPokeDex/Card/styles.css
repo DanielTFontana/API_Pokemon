@@ -72,9 +72,9 @@
 }
 
 .cardStats{
-    width: 90%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
     background-color: #f4f4f4;
-    padding: 8px;
     border-radius: 2%;
-    height: 80%;
 }
