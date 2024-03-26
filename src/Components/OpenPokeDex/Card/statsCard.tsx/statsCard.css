@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+.arrowIcon{
+    width: 30px;
+    filter: brightness(0) invert(1) saturate(100%);
+    transition: 0.5s;
+}
+
+.arrowIconRevert{
+    width: 30px;
+    filter: brightness(0) invert(1) saturate(100%);
+    rotate: 180deg;
+    transition: 0.5s;
+}
+
+
+.statsContainer{
+    display: grid;
+    justify-items: center;
+    padding: 1rem;
+}
+
+.statsLabel{
+    color: #FFF;
+    font-size: 30px;
+    font-family: "Roboto Mono", monospace;
+    cursor: pointer;
+
+}
+
+.btn{
+    background-color: transparent;
+    display: grid;
+    justify-items: center;
+    padding: 4px;
+    border-radius: 5%;
+    border: none;
+    cursor: pointer;
+    &:hover{
+        opacity: 0.6
+    }
+}
