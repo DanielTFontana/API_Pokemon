@@ -8,9 +8,14 @@ interface ListPokeProps {
   onPokemonSelect: (pokemonName: string) => void;
 }
 
-export const ListPoke: React.FC<ListPokeProps> = ({onPokemonSelect }) => {
+export const ListPoke: React.FC<ListPokeProps> = ({ onPokemonSelect }) => {
   const [pokemonList, setPokemonList] = useState<any[]>([]);
-  const [selectedPokemon, setSelectedPokemon] = useState<string>('')
+  const [selectedPokemon, setSelectedPokemon] = useState({
+    name:'',
+    id:0
+  });
+
+  console.log(pokemonList, selectedPokemon)
 
   const getPokeList = async () => {
     try {
@@ -29,22 +34,28 @@ export const ListPoke: React.FC<ListPokeProps> = ({onPokemonSelect }) => {
     getPokeList();
   }, []);
 
-  console.log(pokemonList);
+  const IChooseYou = (pokeName: string, pokemonId:number) => {
+    onPokemonSelect(pokeName);
+    setSelectedPokemon({name: pokeName, id: pokemonId});
+  };
 
-  const IChooseYou = (pokeName:string) => {
-    onPokemonSelect(pokeName)
-    setSelectedPokemon(pokeName)
-  }
-
-
+  
   return (
     <div className="listPokes">
       {pokemonList.map((pokemon: any) => (
-        <div className="listName" key={pokemon.name} onClick={ () => IChooseYou(pokemon.name)}>
-          <p className="list">
-            {FirstLatterUpper(pokemon.name)}
-          </p>
-          <img className="pokeballList" src={selectedPokemon === pokemon.name? openPokeball : closedPokeball} alt="" />
+        <div
+          className="listName"
+          key={pokemon.name}
+          onClick={() => IChooseYou(pokemon.name, parseInt(pokemon.url.split('/').slice(-2, -1)[0]))}
+        >
+          <p className="list">#{parseInt(pokemon.url.split('/').slice(-2, -1)[0])} {FirstLatterUpper(pokemon.name)}</p>
+          <img
+            className="pokeballList"
+            src={
+              selectedPokemon === pokemon.name ? openPokeball : closedPokeball
+            }
+            alt=""
+          />
         </div>
       ))}
     </div>

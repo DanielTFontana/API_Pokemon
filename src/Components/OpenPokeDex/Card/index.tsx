@@ -20,7 +20,7 @@ import dragon from "../../../assets/dragon.png";
 import steel from "../../../assets/steel.png";
 import fairy from "../../../assets/fairy.png";
 import { StatsCard } from "./statsCard.tsx/statsCard";
-import choosePoke from '../../../assets/choose_pokemon-removebg-preview.png'
+import choosePoke from "../../../assets/choose_pokemon-removebg-preview.png";
 
 const PokemonTypes: any = {
   normal,
@@ -105,8 +105,6 @@ export const Card: React.FC<CardProps> = ({ selectedPokemon }) => {
     setStatsOrganized(statsArray);
   };
 
-
-
   const renderTypeImages = () => {
     return pokeType.map((type, index) => (
       <img
@@ -130,7 +128,17 @@ export const Card: React.FC<CardProps> = ({ selectedPokemon }) => {
       <p className="pokeName">{pokemon.name}</p>
       <div>
         {renderTypeImages()}
-        {pokeType.length === 1 ? <img src={PokemonTypes[""]} alt="" /> :  pokeType.length === 0 && <img style={{filter:' brightness(0) invert(1) saturate(100%)'}} src={choosePoke} alt="choose you poke" /> }
+        {pokeType.length === 1 ? (
+          <img src={PokemonTypes[""]} alt="" />
+        ) : (
+          pokeType.length === 0 && (
+            <img
+              style={{ filter: " brightness(0) invert(1) saturate(100%)" }}
+              src={choosePoke}
+              alt="choose you poke"
+            />
+          )
+        )}
       </div>
       <div onClick={transformPoke} className="pokeNball">
         {dataOn == true && (
@@ -145,7 +153,9 @@ export const Card: React.FC<CardProps> = ({ selectedPokemon }) => {
         )}
         <img className="pokeball" src={pokeball} />
       </div>
-      {charAvaliable && <StatsCard stats={statsOrganized || []} pokemonName={pokemon.name} />}
+      {charAvaliable && (
+        <StatsCard stats={statsOrganized || []} pokemonName={pokemon.name} />
+      )}
     </div>
   );
 };
