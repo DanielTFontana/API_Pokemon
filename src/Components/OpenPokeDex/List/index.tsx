@@ -52,7 +52,7 @@ export const ListPoke: React.FC<ListPokeProps> = ({ onPokemonSelect }) => {
           <img
             className="pokeballList"
             src={
-              selectedPokemon === pokemon.name ? openPokeball : closedPokeball
+              selectedPokemon.name === pokemon.name ? openPokeball : closedPokeball
             }
             alt=""
           />

@@ -9,7 +9,7 @@ interface StatsCardProps {
 }
 
 export const StatsCard: React.FC<StatsCardProps> = ({ stats, pokemonName }) => {
-  const [statsOpen, setStatsOpen] = useState(false);
+  const [statsOpen, setStatsOpen] = useState<boolean>(false);
 
   const handleButton = () => {
     setStatsOpen(!statsOpen);
@@ -28,7 +28,7 @@ export const StatsCard: React.FC<StatsCardProps> = ({ stats, pokemonName }) => {
           />
         </button>
   
-        {stats.length !== 0 && (
+        {stats.length !== 0 && statsOpen && (
           <div className="cardStats">
             <BarChart
               dataset={stats}
@@ -52,6 +52,4 @@ export const StatsCard: React.FC<StatsCardProps> = ({ stats, pokemonName }) => {
   
   return generateChart();
   
-
-  return generateChart();
 };

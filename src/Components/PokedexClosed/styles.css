@@ -1,5 +1,11 @@
-.divDex {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+.dexContent{
+    display: grid;
+    justify-items: center;
+    background: rgb(40,11,0);
+background: linear-gradient(90deg, rgba(40,11,0,1) 0%, rgba(252,0,0,0.7) 35%, rgba(232,255,0,1) 100%);
+width: 100%;
+}
+
+.dexTitle{
+    max-width: 600px;
 }

@@ -1,17 +1,26 @@
-import { useState } from 'react'
-import './App.css'
-import { ClosedDex } from './Components/PokedexClosed'
-import { OpenDex } from './Components/OpenPokeDex'
-import { Card } from './Components/OpenPokeDex/Card' 
-import { ListPoke } from './Components/OpenPokeDex/List'
+import { useState } from "react";
+import "./App.css";
+import { ClosedDex } from "./Components/PokedexClosed";
+import { OpenDex } from "./Components/OpenPokeDex";
 
 function App() {
+  const [openDex, setOpenDex] = useState<boolean>(false);
+
+  const handleOpenDex = () => {
+    setOpenDex(true);
+  };
 
   return (
-    <div >
-   <OpenDex/>
+    <div className="contentAling">
+      {openDex === false ? (
+        <button className="buttonStyle" onClick={handleOpenDex}>
+          <ClosedDex openDex={openDex} />
+        </button>
+      ) : (
+        <OpenDex />
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
