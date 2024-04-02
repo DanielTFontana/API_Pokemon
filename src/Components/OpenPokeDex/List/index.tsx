@@ -42,11 +42,12 @@ export const ListPoke: React.FC<ListPokeProps> = ({ onPokemonSelect }) => {
   
   return (
     <div className="listPokes">
+      <div className="insideContent">
       {pokemonList.map((pokemon: any) => (
         <div
-          className="listName"
-          key={pokemon.name}
-          onClick={() => IChooseYou(pokemon.name, parseInt(pokemon.url.split('/').slice(-2, -1)[0]))}
+        className="listName"
+        key={pokemon.name}
+        onClick={() => IChooseYou(pokemon.name, parseInt(pokemon.url.split('/').slice(-2, -1)[0]))}
         >
           <p className="list">#{parseInt(pokemon.url.split('/').slice(-2, -1)[0])} {FirstLatterUpper(pokemon.name)}</p>
           <img
@@ -55,9 +56,10 @@ export const ListPoke: React.FC<ListPokeProps> = ({ onPokemonSelect }) => {
               selectedPokemon.name === pokemon.name ? openPokeball : closedPokeball
             }
             alt=""
-          />
+            />
         </div>
       ))}
+      </div>
     </div>
   );
 };

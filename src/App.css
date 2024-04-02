@@ -1,15 +1,23 @@
 .contentAling{
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     align-items: center;
     justify-content: center;
+    background: rgb(40,11,0);
+    background: linear-gradient(90deg, rgba(40,11,0,1) 0%, rgba(252,0,0,0.7) 35%, rgba(232,255,0,1) 100%);
 }
 
 .buttonStyle{
     background-color: transparent;
     border: none;
+    width: 100%;
     &:hover{
         cursor: pointer;
     }
+}
+
+.titleDex{
+    width: 50%;
+    align-self: center;
 }

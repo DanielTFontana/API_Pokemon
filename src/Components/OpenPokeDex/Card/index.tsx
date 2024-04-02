@@ -133,7 +133,7 @@ export const Card: React.FC<CardProps> = ({ selectedPokemon }) => {
         ) : (
           pokeType.length === 0 && (
             <img
-              style={{ filter: " brightness(0) invert(1) saturate(100%)" }}
+              className="choosePokeStyle"
               src={choosePoke}
               alt="choose you poke"
             />
