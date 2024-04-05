@@ -6,7 +6,15 @@
     width: 100%;
     height: 100%;
     border-radius: 5%;
-    padding: 8 50px;
+    overflow-y: hidden;
+    padding-bottom: 35px;
+}
+
+.listHeader{
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .list{

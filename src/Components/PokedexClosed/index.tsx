@@ -16,9 +16,5 @@ export const ClosedDex: React.FC<CloseDexProps> = ({ openDex }) => {
     return null;
   }
 
-  return (
-
-      <img className="dexStyle" src={closedDex} alt="" />
-
-  );
+  return <img className="dexStyle" src={closedDex} alt="" />;
 };

@@ -19,6 +19,7 @@ import ghost from "../../../assets/ghost.png";
 import dragon from "../../../assets/dragon.png";
 import steel from "../../../assets/steel.png";
 import fairy from "../../../assets/fairy.png";
+import dark from "../../../assets/dark.png";
 import { StatsCard } from "./statsCard.tsx/statsCard";
 import choosePoke from "../../../assets/choose_pokemon-removebg-preview.png";
 
@@ -40,6 +41,7 @@ const PokemonTypes: any = {
   dragon,
   steel,
   fairy,
+  dark,
 };
 
 interface CardProps {
@@ -120,6 +122,9 @@ export const Card: React.FC<CardProps> = ({ selectedPokemon }) => {
     if (pokemon) {
       mapingPokeTypes(pokemon);
       setChartAvaliable(true);
+    }
+    if (pokemon.name) {
+      setTransform("default");
     }
   }, [pokemon]);
 
