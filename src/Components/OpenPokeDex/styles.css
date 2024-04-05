@@ -3,12 +3,21 @@
     width: 70%;
     height: 80%;
 }
-@media (max-width:1050px) {
+@media (max-width:1200px) {
     .openDexWrapper{
         width: 90%;
     }
 }
-@media (max-width:500px) {
+@media (max-width:950px) {
+    .openDexWrapper{
+        width: 100%;
+    }
+}
+@media (max-width:840px) {
+    .openDexWrapper{
+        width: 80%;
+        height: 100%;
+    }
     .openDexWrapper{
       flex-wrap: wrap;
     }

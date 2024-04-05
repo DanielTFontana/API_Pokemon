@@ -140,22 +140,28 @@ export const Card: React.FC<CardProps> = ({ selectedPokemon }) => {
           )
         )}
       </div>
-      <div onClick={transformPoke} className="pokeNball">
-        {dataOn == true && (
-          <img
-            className="poke"
-            src={
-              pokemon?.sprites.versions["generation-v"]["black-white"].animated[
-                `front_${transform}`
-              ]
-            }
-          />
-        )}
-        <img className="pokeball" src={pokeball} />
+      <div>
+        <div onClick={transformPoke} className="pokeNball">
+          {dataOn == true && (
+            <img
+              className="poke"
+              src={
+                pokemon?.sprites.versions["generation-v"]["black-white"]
+                  .animated[`front_${transform}`]
+              }
+            />
+          )}
+          <img className="pokeball" src={pokeball} />
+        </div>
+        <div>
+          {charAvaliable && (
+            <StatsCard
+              stats={statsOrganized || []}
+              pokemonName={pokemon.name}
+            />
+          )}
+        </div>
       </div>
-      {charAvaliable && (
-        <StatsCard stats={statsOrganized || []} pokemonName={pokemon.name} />
-      )}
     </div>
   );
 };

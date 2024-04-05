@@ -33,14 +33,15 @@
 
 .pokeball{
     position: relative;
-    width: 60%;
-    height: 60%;
+    width: 50%;
+    height: 50%;
     opacity: 0.5;
     z-index: 0;
     cursor: pointer;
 }
 
 .poke{
+    max-width: 180px;
     width: 40%;
     position: absolute;
     z-index: 1;
@@ -57,13 +58,12 @@
 }
 
 .pokeTypes {
-    width: 12%;
+    width: 8%;
     min-width: 30px;
     padding: 5px;
 }
 
 .cardStats{
-    margin-top: 1rem;
     display: flex;
     justify-content: center;
     background-color: #f4f4f4;
@@ -72,7 +72,7 @@
 
 .choosePokeStyle{
     filter:brightness(0) invert(1) saturate(100%);
-    width: 100%;
+    max-width: 75%;
 }
 @media (max-width:500px) {
     .pokeName{

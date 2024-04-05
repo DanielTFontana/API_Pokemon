@@ -6,18 +6,10 @@
     transition: 0.5s;
 }
 
-.arrowIconRevert{
-    width: 5%;
-    filter: brightness(0) invert(1) saturate(100%);
-    rotate: 180deg;
-    transition: 0.5s;
-}
-
-
-.statsContainer{
-    display: grid;
-    justify-items: center;
-    padding: 1rem;
+.statsContainer {
+    margin-top: -1.5rem;
+    width: 100%;
+    display: flex;
 }
 
 .statsLabel{
@@ -30,13 +22,17 @@
 
 .btn{
     background-color: transparent;
-    display: grid;
     justify-items: center;
-    padding: 4px;
-    border-radius: 5%;
+    display: grid;
     border: none;
     cursor: pointer;
     &:hover{
         opacity: 0.6
+    }
+}
+
+@media (max-width:540px) {
+    .statsContainer{
+        width: 120%;
     }
 }

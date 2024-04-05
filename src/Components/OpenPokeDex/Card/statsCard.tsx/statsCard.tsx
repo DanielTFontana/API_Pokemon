@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BarChart } from "@mui/x-charts/BarChart";
-import arrowDown from "../../../../assets/arrow_down.png";
 import "./statsCard.css";
 
 interface StatsCardProps {
@@ -9,47 +8,45 @@ interface StatsCardProps {
 }
 
 export const StatsCard: React.FC<StatsCardProps> = ({ stats, pokemonName }) => {
-  const [statsOpen, setStatsOpen] = useState<boolean>(false);
+  const [chatWidth, setChartWidth] = useState<number>(300);
 
-  const handleButton = () => {
-    setStatsOpen(!statsOpen);
-  };
-    
+  useEffect(() => {
+    const handleCheckWidth = () => {
+      if (window.innerWidth <= 520) {
+        setChartWidth(150);
+      } else {
+        setChartWidth(300);
+      }
+    };
+
+    window.addEventListener("resize", handleCheckWidth);
+
+    return () => window.addEventListener("resize", handleCheckWidth);
+  }, []);
+
   const generateChart = () => {
     return (
       <div className="statsContainer">
-        <button className="btn" onClick={handleButton}>
-          <label className="statsLabel" htmlFor="arrowIcon">
-            Stats
-          </label>{" "}
-          <img
-            className={statsOpen === false ? "arrowIcon" : "arrowIconRevert"}
-            src={arrowDown}
+        {stats.length !== 0 && (
+          <BarChart
+            dataset={stats}
+            series={[{ dataKey: "base_stat" }]}
+            layout="horizontal"
+            yAxis={[
+              {
+                scaleType: "band",
+                dataKey: "name",
+                tickLabelStyle: { fill: "white" },
+              },
+            ]}
+            xAxis={[{ min: 0, max: 200, tickLabelStyle: { fill: "white" } }]}
+            width={chatWidth}
+            height={220}
           />
-        </button>
-  
-        {stats.length !== 0 && statsOpen && (
-          <div className="cardStats">
-            <BarChart
-              dataset={stats}
-              series={[{ dataKey: "base_stat", label: `${pokemonName} status` }]}
-              layout="horizontal"
-              yAxis={[
-                {
-                  scaleType: "band",
-                  dataKey: "name",
-                },
-              ]}
-              xAxis={[{ min: 0, max: 200 }]}
-              width={350}
-              height={300}
-            />
-          </div>
         )}
       </div>
     );
   };
-  
+
   return generateChart();
-  
 };

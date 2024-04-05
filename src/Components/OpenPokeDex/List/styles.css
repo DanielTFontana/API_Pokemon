@@ -7,7 +7,6 @@
     height: 100%;
     border-radius: 5%;
     padding: 8 50px;
-    overflow-y: hidden;
 }
 
 .list{
@@ -31,14 +30,13 @@
 }
 
 .pokeballList{
-    width: 12%;
+    width: 8%;
     min-width: 30px;
 }
 
 .insideContent{
-    margin: 0 10px;
     padding: 0 10px;
-    overflow-y: auto;
+    overflow-y: scroll;
     height: 100%;
 }
 *::-webkit-scrollbar {
@@ -71,7 +69,7 @@
     background-color: #FFFFFF;
   }
 
-  @media (max-width:500px) {
+  @media (max-width:840px) {
     .insideContent{
         max-height: 500px;
     }
