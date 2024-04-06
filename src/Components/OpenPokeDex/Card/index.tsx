@@ -128,6 +128,10 @@ export const Card: React.FC<CardProps> = ({ selectedPokemon }) => {
     }
   }, [pokemon]);
 
+  const FirstLatterUpper = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   return (
     <div className="biggerCard">
       <p className="pokeName">{pokemon.name}</p>

@@ -3,11 +3,12 @@
 
 .listPokes{
     background-color: #1c1c1c;
+    opacity: 0.9;
     width: 100%;
     height: 100%;
     border-radius: 5%;
     overflow-y: hidden;
-    padding-bottom: 35px;
+    padding-bottom: 40px;
 }
 
 .listHeader{
@@ -43,7 +44,7 @@
 }
 
 .insideContent{
-    padding: 0 10px;
+    padding: 0 30px;
     overflow-y: scroll;
     height: 100%;
 }

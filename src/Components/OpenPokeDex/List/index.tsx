@@ -15,7 +15,6 @@ interface ListPokeProps {
 const useStyles = makeStyles({
   whiteSelect: {
     backgroundColor: "white",
-    color: "white",
     borderRadius: 3,
     minWidth: "150px",
     paddingLeft: 8,
@@ -82,6 +81,7 @@ export const ListPoke: React.FC<ListPokeProps> = ({ onPokemonSelect }) => {
     }
     setSeasonChange(true);
   };
+
   const FirstLatterUpper = (str: string) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };

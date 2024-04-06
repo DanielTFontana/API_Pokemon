@@ -1,20 +1,22 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
 
 
 .biggerCard{
     background-color: #1c1c1c; 
+    opacity: 0.9;
     width: 100%;
     border-radius: 5%;
     height: 100%;
     padding: 10px;
     text-align: center;
-    padding-bottom: 35px;
+    padding-bottom: 40px;
 }
 
 .pokeName{
     color: #f4f4f4;
-    font-family: "Madimi One", sans-serif;
+    font-family: "Roboto Mono", monospace;
     font-size: 50px;
 }
 
