@@ -22,6 +22,7 @@ import fairy from "../../../assets/fairy.png";
 import dark from "../../../assets/dark.png";
 import { StatsCard } from "./statsCard.tsx/statsCard";
 import choosePoke from "../../../assets/choose_pokemon-removebg-preview.png";
+import { Tooltip } from "@mui/material";
 
 const PokemonTypes: any = {
   normal,
@@ -129,12 +130,12 @@ export const Card: React.FC<CardProps> = ({ selectedPokemon }) => {
   }, [pokemon]);
 
   const FirstLatterUpper = (str: string) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+    return str && str[0].toUpperCase() + str.slice(1)
   };
-
+FirstLatterUpper(pokemon.name)
   return (
     <div className="biggerCard">
-      <p className="pokeName">{pokemon.name}</p>
+      <p className="pokeName">{FirstLatterUpper(pokemon.name)}</p>
       <div>
         {renderTypeImages()}
         {pokeType.length === 1 ? (
@@ -150,18 +151,20 @@ export const Card: React.FC<CardProps> = ({ selectedPokemon }) => {
         )}
       </div>
       <div>
-        <div onClick={transformPoke} className="pokeNball">
-          {dataOn == true && (
-            <img
-              className="poke"
-              src={
-                pokemon?.sprites.versions["generation-v"]["black-white"]
-                  .animated[`front_${transform}`]
-              }
-            />
-          )}
-          <img className="pokeball" src={pokeball} />
-        </div>
+        <Tooltip title="Click to shiny">
+          <div onClick={transformPoke} className="pokeNball">
+            {dataOn == true && (
+              <img
+                className="poke"
+                src={
+                  pokemon?.sprites.versions["generation-v"]["black-white"]
+                    .animated[`front_${transform}`]
+                }
+              />
+            )}
+            <img className="pokeball" src={pokeball} />
+          </div>
+        </Tooltip>
         <div>
           {charAvaliable && (
             <StatsCard

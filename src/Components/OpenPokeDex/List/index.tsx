@@ -6,7 +6,7 @@ import openPokeball from "../../../assets/open-pokeball.png";
 import { makeStyles } from "@material-ui/styles";
 import Select from "@mui/material/Select";
 import SearchIcon from "@mui/icons-material/Search";
-import { IconButton, InputBase, MenuItem, Paper } from "@mui/material";
+import { IconButton, InputBase, MenuItem, Paper, Tooltip } from "@mui/material";
 
 interface ListPokeProps {
   onPokemonSelect: (pokemonName: string) => void;
@@ -146,30 +146,32 @@ export const ListPoke: React.FC<ListPokeProps> = ({ onPokemonSelect }) => {
           ? filteresPokes
           : seasonEnum[selectedSeason as keyof typeof seasonEnum]
         ).map((pokemon: any) => (
-          <div
-            className="listName"
-            key={pokemon.name}
-            onClick={() =>
-              IChooseYou(
-                pokemon.name,
-                parseInt(pokemon.url.split("/").slice(-2, -1)[0])
-              )
-            }
-          >
-            <p className="list">
-              #{parseInt(pokemon.url.split("/").slice(-2, -1)[0])}{" "}
-              {FirstLatterUpper(pokemon.name)}
-            </p>
-            <img
-              className="pokeballList"
-              src={
-                selectedPokemon.name === pokemon.name
-                  ? openPokeball
-                  : closedPokeball
+          <Tooltip key={pokemon.id} title={`${pokemon.name}, I choose you`}>
+            <div
+              className="listName"
+              key={pokemon.name}
+              onClick={() =>
+                IChooseYou(
+                  pokemon.name,
+                  parseInt(pokemon.url.split("/").slice(-2, -1)[0])
+                )
               }
-              alt=""
-            />
-          </div>
+            >
+              <p className="list">
+                #{parseInt(pokemon.url.split("/").slice(-2, -1)[0])}{" "}
+                {FirstLatterUpper(pokemon.name)}
+              </p>
+              <img
+                className="pokeballList"
+                src={
+                  selectedPokemon.name === pokemon.name
+                    ? openPokeball
+                    : closedPokeball
+                }
+                alt=""
+              />
+            </div>
+          </Tooltip>
         ))}
       </div>
     </div>
