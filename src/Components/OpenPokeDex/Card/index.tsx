@@ -47,6 +47,8 @@ const PokemonTypes: any = {
 
 interface CardProps {
   selectedPokemon: string;
+  pokemonName?: string;
+
 }
 
 interface PokeData {
@@ -130,7 +132,7 @@ export const Card: React.FC<CardProps> = ({ selectedPokemon }) => {
   }, [pokemon]);
 
   const FirstLatterUpper = (str: string) => {
-    return str && str[0].toUpperCase() + str.slice(1)
+    return str && str[0].toUpperCase() + str.slice()
   };
 FirstLatterUpper(pokemon.name)
   return (

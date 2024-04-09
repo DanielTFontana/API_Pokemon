@@ -7,7 +7,7 @@ interface StatsCardProps {
   pokemonName: string;
 }
 
-export const StatsCard: React.FC<StatsCardProps> = ({ stats, pokemonName }) => {
+export const StatsCard: React.FC<StatsCardProps> = ({ stats }) => {
   const [chatWidth, setChartWidth] = useState<number>(300);
 
   useEffect(() => {

@@ -13,7 +13,9 @@ function App() {
     setOpenDex(true);
   };
 
-
+ const handleCloseDex = () => {
+  setOpenDex(false)
+ }
 
   return (
     <>
@@ -46,7 +48,7 @@ function App() {
         </div>
       ) : (
         <div className="contentAling">
-          <OpenDex close={openDex} />
+          <OpenDex onCloseDex={handleCloseDex} close={openDex} />
         </div>
       )}
     </>

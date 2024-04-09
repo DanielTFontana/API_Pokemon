@@ -7,9 +7,11 @@ import { makeStyles } from "@material-ui/styles";
 import Select from "@mui/material/Select";
 import SearchIcon from "@mui/icons-material/Search";
 import { IconButton, InputBase, MenuItem, Paper, Tooltip } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface ListPokeProps {
   onPokemonSelect: (pokemonName: string) => void;
+  onCloseDex: (state:boolean) => void
 }
 
 const useStyles = makeStyles({
@@ -21,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const ListPoke: React.FC<ListPokeProps> = ({ onPokemonSelect }) => {
+export const ListPoke: React.FC<ListPokeProps> = ({onCloseDex, onPokemonSelect }) => {
   const classes = useStyles();
   const [pokemonList, setPokemonList] = useState<any[]>([]);
   const [firstSeasonList, setFirstSeasonList] = useState<any[]>([]);
@@ -110,6 +112,10 @@ export const ListPoke: React.FC<ListPokeProps> = ({ onPokemonSelect }) => {
     setSelectedPokemon({ name: pokeName, id: pokemonId });
   };
 
+  const handleCloseDex = () => {
+    onCloseDex(true)
+  }
+
   return (
     <div className="listPokes">
       <div className="listHeader">
@@ -139,17 +145,20 @@ export const ListPoke: React.FC<ListPokeProps> = ({ onPokemonSelect }) => {
             <SearchIcon />
           </IconButton>
         </Paper>
+        <Tooltip title="Close pokedex">
+          <CloseIcon onClick={handleCloseDex} className="closeIcon" />
+        </Tooltip>
       </div>
 
       <div className="insideContent">
         {(searchText
           ? filteresPokes
           : seasonEnum[selectedSeason as keyof typeof seasonEnum]
-        ).map((pokemon: any) => (
-          <Tooltip key={pokemon.id} title={`${pokemon.name}, I choose you`}>
+        ).map((pokemon: any, key:number) => (
+          <Tooltip key={key} title={`${pokemon.name}, I choose you`}>
             <div
               className="listName"
-              key={pokemon.name}
+              key={key}
               onClick={() =>
                 IChooseYou(
                   pokemon.name,

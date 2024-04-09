@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import closedDex from "../../assets/pokedex_fechada-removebg-preview.png";
 import "./styles.css";
+
 interface CloseDexProps {
   openDex: boolean;
 }
