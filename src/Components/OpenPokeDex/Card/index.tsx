@@ -132,7 +132,7 @@ export const Card: React.FC<CardProps> = ({ selectedPokemon }) => {
   }, [pokemon]);
 
   const FirstLatterUpper = (str: string) => {
-    return str && str[0].toUpperCase() + str.slice()
+    return str && str[0].toUpperCase() + str.slice(1)
   };
 FirstLatterUpper(pokemon.name)
   return (
